@@ -11,6 +11,14 @@ namespace A2.Lib
 
         public void OrderProduct(OrderProduct product)
         {
+            const double MinimumPrice = 0;
+            const int MinimumValue = 1;
+            var isDataValid = product != null &&
+                              !string.IsNullOrEmpty(product.Name) &&
+                              product.PricePerUnit > MinimumPrice &&
+                              product.Unit >= MinimumValue;
+            if (!isDataValid) return;
+
             CartInfo.Products.Add(product);
 
             var TotalPriceBeforeDiscount = 0.00;
@@ -20,13 +28,14 @@ namespace A2.Lib
             var group = CartInfo.Products.GroupBy(it => it.Name);
             foreach (var item in group)
             {
+                foreach (var item_2 in item) item_2.TotalPrice = item_2.Unit * item_2.PricePerUnit;
+
                 var discountAmount = 0;
-                foreach (var item_2 in item)
-                {
-                    discountAmount = item_2.Unit / 4;
-                    item_2.TotalPrice = item_2.Unit * item_2.PricePerUnit;
-                    TotalPriceBeforeDiscount += item_2.TotalPrice;
-                }
+                var units = item.Sum(it => it.Unit);
+                var totalPrice = units * item.FirstOrDefault().PricePerUnit;
+
+                TotalPriceBeforeDiscount += totalPrice;
+                discountAmount = units / 4;
                 Discount += item.FirstOrDefault().PricePerUnit * discountAmount;
             }
             TotalPrice = TotalPriceBeforeDiscount - Discount;
