@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Result</ion-title>
+    <ion-title>ผลลัพธ์</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -9,12 +9,13 @@
 <ion-content padding>
 
   <ion-list>
-    <ion-item *ngFor="let item of model">
-      ยอดที่ต้องชำระ: {{ item }}
+    <p>ยอดที่ต้องชำระในแต่ละปี</p>
+    <ion-item *ngFor="let item of model; let i = index">
+      ปีที่ {{ (i+1) }} ต้องชำระ {{ item }}
     </ion-item>
   </ion-list>
 
 </ion-content>
 <ion-footer>
-  <button ion-button block (click)="home()">Home</button>
+  <button ion-button block (click)="home()">กลับไปหน้าแรก</button>
 </ion-footer>

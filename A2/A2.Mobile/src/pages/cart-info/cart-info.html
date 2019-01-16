@@ -15,9 +15,20 @@
 
 </ion-content>
 <ion-footer>
-  <ion-item>
-    <p><b>ยอดรวมก่อนลด:</b> {{ model.totalPriceBeforeDiscount }}</p>
-    <p><b>ส่วนลด:</b> {{ model.discount }}</p>
-    <p><b>ยอดเงินทั้งหมด:</b> {{ model.totalPrice }}</p>
-  </ion-item>
+  <ion-card color="primary">
+    <ion-card-content>
+      <ion-row>
+        <div col-2>
+          <h1>
+            <ion-icon name="logo-bitcoin"></ion-icon>
+          </h1>
+        </div>
+        <div col-10>
+          <p><b>ยอดรวมก่อนลด:</b> <span text-right></span>{{ model.totalPriceBeforeDiscount }}</p>
+          <p><b>ส่วนลด:</b> {{ model.discount }}</p>
+          <p><b>ยอดเงินทั้งหมด:</b> {{ model.totalPrice }}</p>
+        </div>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
 </ion-footer>
