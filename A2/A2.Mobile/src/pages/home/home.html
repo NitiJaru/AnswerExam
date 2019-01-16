@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>สั่งซื้อสินค้า</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+
+  <p>เลือกรายการสินค้าเพื่อน้ำเข้าตระกร้า</p>
+  <ion-list>
+    <ion-item *ngFor="let item of model" (click)="Purchase(item)" color="primary">
+      <ion-row>
+        <div col-11>
+          <p><b>ชื่อสินค้า:</b> {{ item.name }}</p>
+          <p><b>ราคาต่อหน่วย:</b> {{ item.price }}</p>
+        </div>
+        <div col-1>
+          <ion-icon name="arrow-dropright"></ion-icon>
+        </div>
+      </ion-row>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
+<ion-footer>
+  <button ion-button block (click)="GoToCart()" color="danger">ไปที่หน้าตระกร้า</button>
+</ion-footer>

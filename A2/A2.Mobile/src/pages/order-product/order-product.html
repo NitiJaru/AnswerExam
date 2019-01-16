@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>สั่งซื้อสินค้า</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+
+  <ion-item>
+    <ion-label>ชื่อสินค้า</ion-label>
+    <ion-label>{{ model.name }}</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label>ราคาต่อหน่วย</ion-label>
+    <ion-label>{{ model.pricePerUnit }}</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label>จำนวนที่ต้องการ</ion-label>
+    <ion-input type="number" [(ngModel)]="model.unit"></ion-input>
+  </ion-item>
+
+</ion-content>
+<ion-footer>
+  <button ion-button block (click)="AddToCart()">นำเข้าตระกร้า</button>
+</ion-footer>

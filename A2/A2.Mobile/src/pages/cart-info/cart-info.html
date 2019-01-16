@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>รายละเอียดตระกร้า</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+
+  <p>รายะเอียดสินค้า</p>
+  <ion-item *ngFor="let item of model.products">
+    <p><b>ชื่อสินค้า:</b> {{ item.name }}</p>
+    <p><b>จำนวนที่ต้องการ:</b> {{ item.unit }}</p>
+    <p><b>ราคาต่อหน่วย:</b> {{ item.pricePerUnit }}</p>
+    <p><b>ยอดรวมสำหรับรายการนั้น:</b> {{ item.totalPrice }}</p>
+  </ion-item>
+
+</ion-content>
+<ion-footer>
+  <ion-item>
+    <p><b>ยอดรวมก่อนลด:</b> {{ model.totalPriceBeforeDiscount }}</p>
+    <p><b>ส่วนลด:</b> {{ model.discount }}</p>
+    <p><b>ยอดเงินทั้งหมด:</b> {{ model.totalPrice }}</p>
+  </ion-item>
+</ion-footer>
