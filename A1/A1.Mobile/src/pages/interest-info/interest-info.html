@@ -1,0 +1,24 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>InterestInfo</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-item>
+    <ion-label>ยอดเงินต้น</ion-label>
+    <ion-input type="number" [(ngModel)]="PrincipleAmount"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>จำนวนปี</ion-label>
+    <ion-input type="number" [(ngModel)]="YearAmount"></ion-input>
+  </ion-item>
+
+</ion-content>
+<ion-footer>
+  <button ion-button block (click)="Next()">Next</button>
+</ion-footer>
